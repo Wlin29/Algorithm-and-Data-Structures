@@ -11,7 +11,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class Graph {
@@ -22,7 +21,9 @@ public class Graph {
     final double INF = Double.MAX_VALUE;
 
     // [stopID, Adjacency matrix entry]
-    Map<String, Integer> vertexNumber = new HashMap<String, Integer>();
+    HashMap<String, Integer> vertexNumber = new HashMap<String, Integer>();
+    // [Adjacency matrix entry, stopID]
+    HashMap<Integer, String> reverseVertexNumber = new HashMap<Integer, String>();
 
     // 8757 is the number of bus stops listed in stops.txt
     double[][] adjacencyMatrix = new double[8757][8757];
@@ -35,7 +36,12 @@ public class Graph {
         // Initialise the adjacency matrix
         for (int i = 0; i < adjacencyMatrix.length; i++) {
             for (int j = 0; j < adjacencyMatrix.length; j++) {
-                adjacencyMatrix[i][j] = INF;
+                if(i==j){
+                    adjacencyMatrix[i][j] = 0;
+                }
+                else{
+                    adjacencyMatrix[i][j] = INF;
+                }
             }
         }
 
@@ -53,6 +59,7 @@ public class Graph {
                 line = scanner.nextLine().trim().split(",");
                 String stopID = line[0];
                 vertexNumber.put(stopID, vertexCount);
+                reverseVertexNumber.put(vertexCount, stopID);
                 vertexCount++;
             }
             scanner.close();

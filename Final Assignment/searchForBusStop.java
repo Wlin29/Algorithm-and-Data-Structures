@@ -15,14 +15,16 @@ public class searchForBusStop {
             System.out.println("There are no bus stops matching the input");
         }
         // If there are multiple possible outputs
-        else if(output.equals(-1)){
+        else if(output.equals("-1")){
             int numberOfPossibleStops = tst.al.size();
+            System.out.println("stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type,parent_station");
             for(int i=0; i<numberOfPossibleStops; i++){
                 System.out.println(tst.al.get(i));
             }
         }
         // If there is one matching output
         else{
+            System.out.println("stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type,parent_station");
             System.out.println(output);
         }
     }

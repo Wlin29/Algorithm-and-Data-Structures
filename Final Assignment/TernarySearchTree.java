@@ -60,7 +60,7 @@ public class TernarySearchTree {
             }
             else if (ptr == word.length - 1) {
                 al = new ArrayList<String>();
-                traverse(r, "");
+                traverse(r);
                 return "-1";
             }
             else {
@@ -69,23 +69,24 @@ public class TernarySearchTree {
         }
     }
 
-    private void traverse(Node r, String str)
+    private void traverse(Node r)
     {
         if (r != null)
         {
-            traverse(r.left, str);
-            str = str + r.data;
+            traverse(r.left);
             if (r.stopInfo != null)
-                al.add(str);
-            traverse(r.middle, str);
-            str = str.substring(0, str.length() - 1);
-            traverse(r.right, str);
+                al.add(r.stopInfo);
+            traverse(r.middle);
+            if (r.stopInfo != null)
+                al.add(r.stopInfo);
+            traverse(r.right);
+            if (r.stopInfo != null)
+                al.add(r.stopInfo);
         }
     }
 
-    void populateTernarySearchTree(String stopsFile){
+    void populateTernarySearchTree(String stopsFile, TernarySearchTree tst){
         try{
-            TernarySearchTree tst = new TernarySearchTree();
             File stops = new File(stopsFile);
             Scanner scanner = new Scanner(stops);
             // Do nothing with the first line as it is just contains a header

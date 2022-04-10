@@ -112,7 +112,7 @@ public class Graph {
                 line = scanner.nextLine().trim().split(",");
                 fromBusStopID = line[0];
                 toBusStopID = line[1];
-                transferType = Integer.parseInt(line[3]);
+                transferType = Integer.parseInt(line[2]);
 
                 if (transferType == 0) {
                     // If transfer type 0, weight = 2
@@ -124,7 +124,7 @@ public class Graph {
                     adjacencyMatrix[vertexOrigin][vertexDestination] = weight;
                 } else if (transferType == 2) {
                     // If transfer type 2, weight = min transfer time / 100
-                    minTransferTime = Double.parseDouble(line[4]);
+                    minTransferTime = Double.parseDouble(line[3]);
                     weight = minTransferTime / 100;
 
                     // Get the vertex number of both bus stops

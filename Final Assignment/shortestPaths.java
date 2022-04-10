@@ -7,9 +7,7 @@
 
 public class shortestPaths {
 
-    shortestPaths(String stopTimes, String stops, String transfers, String startVertex, String endVertex){
-        Graph adjacencyMatrix = new Graph(stopTimes, stops, transfers);
-
+    shortestPaths(Graph adjacencyMatrix, String startVertex, String endVertex){
         int start = Integer.parseInt(startVertex);
         int end = Integer.parseInt(endVertex);
 

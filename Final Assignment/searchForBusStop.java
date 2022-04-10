@@ -7,4 +7,23 @@
  */
 
 public class searchForBusStop {
+    searchForBusStop(String input, TernarySearchTree tst){
+        String output = tst.search(input);
+
+        // If there are no matching outputs
+        if(output == null){
+            System.out.println("There are no bus stops matching the input");
+        }
+        // If there are multiple possible outputs
+        else if(output.equals(-1)){
+            int numberOfPossibleStops = tst.al.size();
+            for(int i=0; i<numberOfPossibleStops; i++){
+                System.out.println(tst.al.get(i));
+            }
+        }
+        // If there is one matching output
+        else{
+            System.out.println(output);
+        }
+    }
 }

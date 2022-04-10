@@ -16,7 +16,7 @@ class dijkstrasAlgorithm {
     // using adjacency matrix
     // representation
     public static void dijkstra(double[][] adjacencyMatrix, int startVertex, int endVertex) {
-        int nVertices = adjacencyMatrix[0].length;
+        int nVertices = adjacencyMatrix[0].length+1;
 
         // shortestDistances[i] will hold the
         // shortest distance from src to i

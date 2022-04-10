@@ -5,5 +5,18 @@
     @author: Wen Geng Lin
  */
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Scanner;
+
 public class searchForAllTrips {
+
+    searchForAllTrips(String input, HashMap<Integer, ArrayList<String>> listSortedByTime){
+        input = input.replace(":", "");
+        int arrivalTime = Integer.parseInt(input);
+
+        System.out.print(listSortedByTime.get(arrivalTime));
+    }
 }

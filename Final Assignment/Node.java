@@ -8,7 +8,7 @@ public class Node {
     Node left;
     Node right;
     Node middle;
-    String[] stopInfo = new String[10];
+    String stopInfo = new String();
 
     public Node(char data, String[]stopInfo){
         this.data = data;
